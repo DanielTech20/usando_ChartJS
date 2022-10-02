@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="title">
+                <h2>Alguns tipos de tabela!</h2>
+            </div>
+
+            <div class="navegation">
+                <ul>
+                    <li><a href="line.html">Linha</a></li>
+                    <li><a href="bar.html">Barra</a></li>
+                    <li class="agora"><a href="doughnut.html">Doughnut</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- tabelas -->
+        <div class="table">
+                <canvas id="myChart3"></canvas>
+        </div>
+    </main>
+
+    
+    <!-- RODAPÉ/FOOTER -->
+    <footer>
+        <div class="container">
+          <p>Feito com amor por um aluno &hearts; SPTech &copy; 2022</p>
+        </div>
+        <ul>Daniel Sebastian Diniz Teixeira 1ADSA</ul>
+    </footer>
+  
+</body>
+<script>
+
+    const labels3 = [
+        'Temperatura',
+        'Umidade',
+    ];
+
+    const dataDoughnut = {
+        labels: labels3,
+        datasets: [{
+            label: 'My First Dataset',
+            data: [29, 88,],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    const config3 = {
+        type: 'doughnut',
+        data: dataDoughnut,
+        options: {}
+    };
+
+</script>
+
+<script>
+
+    const myChart3 = new Chart(
+        document.getElementById('myChart3'),
+        config3,
+    );
+
+</script>
+
+
+</html>
