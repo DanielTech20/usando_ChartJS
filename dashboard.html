@@ -21,9 +21,7 @@
 
             <div class="navegation">
                 <ul>
-                    <li><a href="line.html">Linha</a></li>
-                    <li><a href="bar.html">Barra</a></li>
-                    <li class="agora"><a href="doughnut.html">Doughnut</a></li>
+                    <li><a href="dashboard.html">Dashboard de temperatura e umidade</a></li>
                 </ul>
             </div>
         </div>
@@ -32,21 +30,30 @@
     <main>
         <!-- tabelas -->
         <div class="table">
+                <canvas id="myChart"></canvas>
                 <canvas id="myChart2"></canvas>
+                <canvas id="myChart3"></canvas>
         </div>
     </main>
 
-    
     <!-- RODAPÉ/FOOTER -->
     <footer>
         <div class="container">
-          <p>Feito com amor por um aluno &hearts; SPTech &copy; 2022</p>
+            <p>Feito com amor por um aluno &hearts; SPTech &copy; 2022</p>
         </div>
         <ul>Daniel Sebastian Diniz Teixeira 1ADSA</ul>
     </footer>
-  
+
 </body>
 <script>
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
 
     const labels2 = [
         'Janeiro',
@@ -56,6 +63,28 @@
         'Maio',
         'Junho',
     ];
+
+    const labels3 = [
+        'Temperatura',
+        'Umidade',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [30, 29, 28, 25, 22, 23],
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: 'rgb(54, 162, 235)',
+            borderColor: 'rgb(54, 162, 235)',
+            data: [80, 82, 80, 85, 80, 83],
+        }
+        ]
+    };
 
     const dataMedia = {
         labels: labels2,
@@ -74,9 +103,34 @@
         ]
     };
 
+    const dataDoughnut = {
+        labels: labels3,
+        datasets: [{
+            label: 'My First Dataset',
+            data: [29, 88,],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
     const config2 = {
         type: 'bar',
         data: dataMedia,
+        options: {}
+    };
+
+    const config3 = {
+        type: 'doughnut',
+        data: dataDoughnut,
         options: {}
     };
 
@@ -84,9 +138,19 @@
 
 <script>
 
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
     const myChart2 = new Chart(
         document.getElementById('myChart2'),
         config2
+    );
+
+    const myChart3 = new Chart(
+        document.getElementById('myChart3'),
+        config3,
     );
 
 </script>
